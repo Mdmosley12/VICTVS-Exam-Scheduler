@@ -16,7 +16,7 @@
     font-size: 22px;
     letter-spacing: 2px;
     line-height: 1;
-        text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+    text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
     margin-bottom: 10px;
   }
   
@@ -39,43 +39,6 @@
     margin-bottom: 10px;
   }
   
-  #signUpAndSearchBox {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content:center;
-    width: 30%;
-  }
-  
-  #signUpAndSearch {
-    color: black;
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1;
-    font-weight: 800;
-    text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
-    margin-bottom: 10px;
-  }
-  
-  #logoBox {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content:space-evenly;
-    width: 30%;
-  }
-  
-  #logo {
-    color: black;
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1;
-    font-weight: 800;
-    text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
-    margin-bottom: 10px;
-  }
 
   @media only screen and (max-width: 600px) {
 
@@ -84,15 +47,13 @@
     }
   
     #nav {
-      width: 50%;
+      width: 40%;
     }
 
-    #signUpAndSearchBox {
-        width: 50%;
-      }
-    
-      #logoBox {
-        display: none;
-      }
+    #logoDiv {
+      width: 60%;
+      font-size: 16px;
+      padding-left: 5px;
+    }
 
 }
