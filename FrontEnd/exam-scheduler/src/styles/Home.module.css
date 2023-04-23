@@ -1,18 +1,16 @@
 #main {
   display: flex;
-  min-height: 100%;
-  align-items: center;
+  min-height: 850px;
+  align-items: flex-start;
   justify-content: center;
   height: auto;
-  /* margin-top: 60px; */
-  /* margin-bottom: 40px;
-  margin-left: 40px;
-  margin-right: 40px; */
   color: black;
   font-size: 20px;
   line-height: 1;
   font-weight: 300;
   text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+  background: rgb(32,48,68);
+  background: radial-gradient(circle, rgba(32,48,68,1) 0%, rgba(65,100,142,1) 100%);
 }
 
 #examContainer {
@@ -41,6 +39,36 @@
 
 .categories {
   width: 20%;
+}
+
+.sortButtons {
+  width: 20%;
+  border: none;
+  background-color: whitesmoke;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+  text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+}
+
+.sortButtons:hover {
+  cursor: pointer;
+  border: black 1px solid;
+}
+
+#dateButton {
+  width: 100%;
+  border: none;
+  background-color: whitesmoke;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+  text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+}
+
+#dateButton:hover {
+  cursor: pointer;
+  border: black 1px solid;
 }
 
 .exam {
@@ -80,6 +108,13 @@
 
 #dateDiv {
   width: 20%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#dateSelector {
+  width: 50%;
 }
 
 @media only screen and (max-width: 800px) {
@@ -89,5 +124,18 @@
 
   #examContainer {
     width: 100%;
+  }
+
+  .sortButtons {
+    font-size: 12px;
+  }
+
+  #dateButton {
+    font-size: 12px;
+  }
+
+  #dateSelector {
+    width: 75%;
+    font-size: 12px;
   }
 }

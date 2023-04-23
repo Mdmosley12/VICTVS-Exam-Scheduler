@@ -1,7 +1,6 @@
 import styles from "@/styles/SingleLocation.module.css";
 
 export const SingleLocationPage = ({ examsByLocation }) => {
-  console.log(examsByLocation);
   return (
     <main id={styles.main}>
       <div id={styles.examContainer}>
