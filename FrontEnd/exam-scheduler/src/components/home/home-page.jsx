@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 const formatDate = require("/utils/formatDate");
 
-export const HomePage = ({ data }) => {
+export const HomePage = ({ data, uniqueLocations, uniqueCandidates }) => {
   const [selectedDate, setSelectedDate] = useState("");
   const [examList, setExamList] = useState(data);
 
@@ -12,6 +12,26 @@ export const HomePage = ({ data }) => {
     setSelectedDate(date);
     if (date) {
       const filtered = data.filter((item) => formatDate(item.Date) === date);
+      setExamList(filtered);
+    } else {
+      setExamList(data);
+    }
+  };
+
+  const handleLocationChange = (event) => {
+    const location = event.target.value;
+    if (location) {
+      const filtered = data.filter((item) => item.LocationName === location);
+      setExamList(filtered);
+    } else {
+      setExamList(data);
+    }
+  };
+
+  const handleCandidateChange = (event) => {
+    const candidate = event.target.value;
+    if (candidate) {
+      const filtered = data.filter((item) => item.CandidateName === candidate);
       setExamList(filtered);
     } else {
       setExamList(data);
@@ -55,11 +75,29 @@ export const HomePage = ({ data }) => {
           <button className={styles.sortButtons} onClick={sortByTitle}>
             Description
           </button>
-          <button className={styles.sortButtons} onClick={sortByName}>
-            Candidate
-          </button>
+
+          <div id={styles.candidateDiv}>
+            <button className={styles.sortButton} onClick={sortByName}>
+              Candidate
+            </button>
+            <select
+              id={styles.candidateDropdown}
+              name="candidates"
+              onChange={handleCandidateChange}
+            >
+              <option value="">All Candidates</option>
+              {uniqueCandidates.map((candidate) => {
+                return (
+                  <option key={candidate} value={candidate}>
+                    {candidate}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
           <div id={styles.dateDiv}>
-            <button id={styles.dateButton} onClick={sortByDate}>
+            <button className={styles.sortButton} onClick={sortByDate}>
               Date
             </button>
             <input
@@ -69,10 +107,28 @@ export const HomePage = ({ data }) => {
               onChange={handleDateChange}
             />
           </div>
-          <button className={styles.sortButtons} onClick={sortByLocation}>
-            Location
-          </button>
+
+          <div id={styles.locationDiv}>
+            <button className={styles.sortButton} onClick={sortByLocation}>
+              Location
+            </button>
+            <select
+              id={styles.locationDropdown}
+              name="locations"
+              onChange={handleLocationChange}
+            >
+              <option value="">All Locations</option>
+              {uniqueLocations.map((location) => {
+                return (
+                  <option key={location} value={location}>
+                    {location}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
+
         {examList.map((exam) => {
           return (
             <div key={exam.id} className={styles.exam}>

@@ -49,6 +49,9 @@
   line-height: 1;
   font-weight: 300;
   text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+  text-align: left;
+  padding-bottom: 16px;
+  padding-left: 5px;
 }
 
 .sortButtons:hover {
@@ -56,7 +59,7 @@
   border: black 1px solid;
 }
 
-#dateButton {
+.sortButton {
   width: 100%;
   border: none;
   background-color: whitesmoke;
@@ -64,9 +67,10 @@
   line-height: 1;
   font-weight: 300;
   text-shadow: 2px 2px 20px rgb(0, 0, 0, .2);
+  text-align: left;
 }
 
-#dateButton:hover {
+.sortButton:hover {
   cursor: pointer;
   border: black 1px solid;
 }
@@ -109,12 +113,37 @@
 #dateDiv {
   width: 20%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  padding-left: 10px;
+  padding-top: 3px;
 }
 #dateSelector {
   width: 50%;
+  margin-top: 3px;
+}
+
+#locationDiv {
+    width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+#candidateDiv {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+#candidateDropdown {
+  width: 50%;
+  margin-top: 2px;
+}
+
+#locationDropdown {
+  width: 50%;
+  margin-top: 2px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -124,6 +153,10 @@
 
   #examContainer {
     width: 100%;
+  }
+
+  .sortButton {
+    font-size: 12px;
   }
 
   .sortButtons {
@@ -136,6 +169,11 @@
 
   #dateSelector {
     width: 75%;
+    font-size: 12px;
+  }
+
+  #locationDropdown {
+        width: 75%;
     font-size: 12px;
   }
 }

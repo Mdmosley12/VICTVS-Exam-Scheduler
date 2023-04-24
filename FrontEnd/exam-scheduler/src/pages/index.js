@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { HomePage } from "../components/home/home-page";
 
-export default function Home({ data }) {
+export default function Home({ data, uniqueLocations, uniqueCandidates }) {
   return (
     <>
       <Head>
@@ -10,16 +10,36 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage data={data} />
+      <HomePage
+        data={data}
+        uniqueLocations={uniqueLocations}
+        uniqueCandidates={uniqueCandidates}
+      />
     </>
   );
 }
 
 export async function getServerSideProps() {
   const { data } = await import("/data/TechTestJson.json");
+  const uniqueLocations = [
+    ...new Set(
+      data.map((exam) => {
+        return exam.LocationName;
+      })
+    ),
+  ];
+  const uniqueCandidates = [
+    ...new Set(
+      data.map((exam) => {
+        return exam.CandidateName;
+      })
+    ),
+  ];
   return {
     props: {
       data: data,
+      uniqueLocations: uniqueLocations,
+      uniqueCandidates: uniqueCandidates,
     },
   };
 }
