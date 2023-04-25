@@ -115,11 +115,11 @@
   display: flex;
   flex-direction: column;
   padding-left: 10px;
-  padding-top: 3px;
+  padding-top: 1px;
 }
 #dateSelector {
   width: 50%;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 #locationDiv {
@@ -173,7 +173,17 @@
   }
 
   #locationDropdown {
-        width: 75%;
-    font-size: 12px;
+    width: 80%;
+    font-size: 10px;
+  }
+
+  #candidateDropdown {
+    width: 80%;
+    font-size: 10px;
+  }
+
+  #dateSelector {
+    width: 80%;
+    font-size: 10px;
   }
 }
